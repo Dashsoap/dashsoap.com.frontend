@@ -28,6 +28,7 @@ export default {};
 .the-toolbar {
   padding: 0 5%;
   background: rgba($color: #fff, $alpha: 0.9);
+  z-index: 1;
 }
 h1 {
   font-family: "Indie Flower", cursive;

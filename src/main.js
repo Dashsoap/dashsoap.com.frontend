@@ -7,10 +7,12 @@ import store from './store'
 import './assets/global.css';
 import TheToolbar from './components/TheToolbar.vue'
 import ZUploader from './components/ZUploader.vue';
-
+import TheFooter from './components/TheFooter.vue'
 Vue.config.productionTip = false
 Vue.component('TheToolbar', TheToolbar)
 Vue.component('ZUploader', ZUploader)
+Vue.component('TheFooter', TheFooter)
+
 Vue.use(ElementUI);
 
 new Vue({
