@@ -11,6 +11,7 @@
 <script>
 import Axios from "axios";
 import myForm from "./components/Form";
+import { AxiosDefault } from "../../plugins/axios";
 export default {
   components: {
     myForm
@@ -20,7 +21,7 @@ export default {
     async onSubmit(form) {
       this.loading++;
       // 得到的返回数据
-      const res = await Axios.post("/api/user", form);
+      const res = await AxiosDefault.put("/api/auth", form);
       this.$message.success(`用户: ${res.data.username}注册成功!`);
       this.$router.push("/login");
       this.loading--;

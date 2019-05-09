@@ -2,16 +2,16 @@
   <div class="bakery">
     <el-row :gutter="100">
       <el-col :span="12" class="content-left">
-        <img :src="pic" class="big-img">
-        <el-row :gutter="50" class="small-img">
+        <img :src="pic+'-fix'" class="big-img">
+        <el-row :gutter="35" class="small-img">
           <el-col :span="8">
-            <img :src="pic1" @click="changePic(pic1)">
+            <img :src="pic1+'-fix'" @click="changePic(pic1)">
           </el-col>
           <el-col :span="8">
-            <img :src="pic2" @click="changePic(pic2)">
+            <img :src="pic2+'-fix'" @click="changePic(pic2)">
           </el-col>
           <el-col :span="8">
-            <img :src="pic3" @click="changePic(pic3)">
+            <img :src="pic3+'-fix'" @click="changePic(pic3)">
           </el-col>
         </el-row>
       </el-col>
@@ -105,16 +105,15 @@ export default {
     const res = await BakeryService.getBakery(this.$route.params.id);
     if (!res.code) {
       this.bakery = res.body;
-      console.log(this.bakery);
       this.pic1 = this.bakery.picture;
       this.pic2 = this.bakery.detailpic1;
       this.pic3 = this.bakery.detailpic2;
       this.pic = this.pic1;
     }
   },
-  mounted() {
-    console.log(this.$route.params.id);
-  },
+  // mounted() {
+  //   console.log(this.$route.params.id);
+  // },
   methods: {
     changePic(e) {
       this.pic = e;
@@ -132,6 +131,7 @@ export default {
   width: 100%;
 }
 .small-img {
+  padding-top: 30px;
   img {
     width: 100%;
   }

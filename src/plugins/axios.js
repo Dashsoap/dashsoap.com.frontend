@@ -1,7 +1,7 @@
 "use strict";
 
 import axios from "axios";
-
+import cookie from 'js-cookie'
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
@@ -18,6 +18,11 @@ const _axios = axios.create(config);
 _axios.interceptors.request.use(
   function (config) {
     // Do something before request is sent
+    const token = cookie.get('token')
+
+    if (token) {
+      config.headers['Authorization'] = token
+    }
     return config;
   },
   function (error) {

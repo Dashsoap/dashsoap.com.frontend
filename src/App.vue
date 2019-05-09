@@ -12,6 +12,9 @@ export default {
       const nameList = ["home"];
       return !nameList.includes(this.$route.name);
     }
+  },
+  async created() {
+    this.$store.dispatch("login");
   }
 };
 </script>

@@ -76,20 +76,23 @@ export default {
         /** 表单验证成功 */
         if (result) {
           this.loading++;
-          const { data } = await AxiosDefault.post("/api/login", this.form);
+          const { data } = await AxiosDefault.post("/api/auth", this.form);
           /** 将token存入cookie内 */
-          Cookie.set("token", data.token);
-          await this.$store.dispatch("login");
-          const { roles } = this.$store.state.me;
-          let next = roles && roles.includes("ADMIN") ? "/admin" : "/";
-          this.$router.push(this.$route.query.next || next);
+          console.log(data);
+          if (!data.code) {
+            Cookie.set("token", data.body);
+            await this.$store.dispatch("login");
+            const { roles } = this.$store.state.me;
+            let next = roles && roles.includes("ADMIN") ? "/admin" : "/";
+            this.$router.push(this.$route.query.next || next);
+          }
           this.loading--;
         }
       });
     }
   },
   beforeCreate() {
-    document.title = "登录 | 膜法商城";
+    document.title = "登录 | 新烘焙";
   }
 };
 </script>
