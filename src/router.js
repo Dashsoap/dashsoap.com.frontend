@@ -23,6 +23,16 @@ export default new Router({
     {
       path: '/bakery/:id',
       component: () => import(/* webpackChunkName: "about" */ './views/Bakery/Bakery.vue')
-    }
+    },
+    {
+      path: '/login',
+      component: () => import(/* webpackChunkName: "about" */ './views/Login/Login.vue')
+
+    },
+    {
+      path: '/register',
+      component: () => import(/* webpackChunkName: "about" */ './views/Register/Register.vue')
+
+    },
   ]
 })

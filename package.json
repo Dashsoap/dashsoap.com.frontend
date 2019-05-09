@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "element-ui": "^2.8.2",
+    "js-cookie": "^2.2.0",
     "qiniu-js": "^2.5.4",
     "shortid": "^2.2.14",
     "vue": "^2.6.10",
