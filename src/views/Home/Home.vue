@@ -4,7 +4,7 @@
       <div
         class="banner"
         v-for="(item,i) in source"
-        :key="i"
+        :key="item"
         :src="item"
         v-show="count === i+1"
         :style="`background-image:url(${item})`"

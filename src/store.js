@@ -11,8 +11,6 @@ export default new Vuex.Store({
   mutations: {
     setMe(state, me) {
       state.me = me;
-      console.log(me);
-
     },
   },
   actions: {

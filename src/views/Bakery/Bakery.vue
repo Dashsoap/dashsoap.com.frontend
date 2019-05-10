@@ -78,7 +78,7 @@
             </el-col>
           </el-row>
           <div class="mt-1">
-            <el-button type="primary">加入购物车</el-button>
+            <el-button type="primary" @click="addCart">加入购物车</el-button>
           </div>
           <p>{{bakery.discreption}}</p>
         </div>
@@ -117,6 +117,16 @@ export default {
   methods: {
     changePic(e) {
       this.pic = e;
+    },
+    async addCart() {
+      const bakery = this.$route.params.id;
+      const cart = this.$store.state.me.cart.id;
+      const res = await BakeryService.addCart(cart, bakery, this.num);
+      if (!res.code) {
+        this.$message({ message: "添加成功", type: "success" });
+      } else {
+        this.$message({ message: "添加失败", type: " warning" });
+      }
     }
   }
 };

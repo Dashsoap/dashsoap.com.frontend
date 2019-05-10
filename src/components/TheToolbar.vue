@@ -25,7 +25,7 @@
             </div>
           </el-dropdown-menu>
         </el-dropdown>
-        <i class="iconfont icon-cart"></i>
+        <i class="iconfont icon-cart" @click="gotoCart"></i>
       </div>
     </el-row>
   </div>
@@ -39,6 +39,9 @@ export default {
     }
   },
   methods: {
+    gotoCart() {
+      this.$router.push("/cart");
+    },
     handleCommand(command) {
       switch (command) {
         case "profile":
@@ -50,7 +53,6 @@ export default {
         case "logout":
           this.$message("click on item " + command);
           this.$store.dispatch("logout");
-          console.log(this.isLogin);
 
           break;
         case "aboutus":
@@ -58,7 +60,6 @@ export default {
           break;
         case "login":
           this.$router.push("/login");
-          console.log(this.isLogin);
 
           break;
         case "register":

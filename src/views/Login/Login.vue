@@ -78,7 +78,6 @@ export default {
           this.loading++;
           const { data } = await AxiosDefault.post("/api/auth", this.form);
           /** 将token存入cookie内 */
-          console.log(data);
           if (!data.code) {
             Cookie.set("token", data.body);
             await this.$store.dispatch("login");
