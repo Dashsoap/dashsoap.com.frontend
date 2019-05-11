@@ -37,7 +37,30 @@ export default new Router({
     {
       path: '/cart',
       component: () => import(/* webpackChunkName: "about" */ './views/Cart/Cart.vue')
+    }, {
+      path: '/me',
+      redirect: '/me/history',
+      component: () => import(/* webpackChunkName: "about" */ './views/Me/Me.vue'),
+      children: [
+        {
+          path: 'history',
+          component: () => import('./views/Me/History/History.vue')
+        },
+        {
+          path: 'profile',
+          component: () => import('./views/Me/Profile/Profile.vue')
+        },
+        {
+          path: 'address',
+          component: () => import('./views/Me/Address/Address.vue')
 
+        },
+        {
+          path: 'address/:id',
+          component: () => import('./views/Me/Address/components/AddressTable.vue')
+
+        }
+      ]
     },
   ]
 })

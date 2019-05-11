@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <the-toolbar v-if="isVisible"></the-toolbar>
+    <the-toolbar v-if="isVisible" class="toolbar"></the-toolbar>
     <router-view/>
     <the-footer></the-footer>
   </div>
@@ -20,4 +20,8 @@ export default {
 </script>
 
 <style lang="scss">
+.toolbar {
+  position: sticky;
+  top: 0;
+}
 </style>

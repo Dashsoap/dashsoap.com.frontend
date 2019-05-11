@@ -2,7 +2,7 @@
   <div class="the-toolbar">
     <el-row type="flex" align="middle" justify="space-between">
       <div>
-        <h1>New Bakery</h1>
+        <h1 @click="homePush">New Bakery</h1>
       </div>
 
       <div class="icon-group">
@@ -42,13 +42,16 @@ export default {
     gotoCart() {
       this.$router.push("/cart");
     },
+    homePush() {
+      this.$router.push("/");
+    },
     handleCommand(command) {
       switch (command) {
         case "profile":
           this.$message("click on item " + command);
           break;
         case "me":
-          this.$message("click on item " + command);
+          this.$router.push("/me");
           break;
         case "logout":
           this.$message("click on item " + command);
